@@ -8,6 +8,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { colors } from '@mui/material';
 
 const tg = window.Telegram.WebApp;
 
@@ -25,6 +26,13 @@ function App() {
     const value = e.target.value;
     if (/^[0-9\b]+$/.test(value)) {
       setCardNumber(value);
+    }
+  };
+
+  const handleNameOnCardChange = (e) => {
+    const value = e.target.value;
+    if (/^[a-zA-Z]+$/.test(value)) {
+      setNameOnCard(value.toUpperCase());
     }
   };
 
@@ -72,15 +80,15 @@ function App() {
                 </InputAdornment>
               ),
             }}
-            InputLabelProps={{ shrink: true, color: '' }} 
-            sx={{ ml:1, mb: 1 }} 
+            InputLabelProps={{ shrink: true }} 
+            sx={{ ml:1, mb: 1, input: { color: '--tg-theme-text-color' } }}
           />
 
           <TextField
             id="nameOnCard"
             label="Name on Card:"
             value={nameOnCard} 
-            // onChange={handleCardNumberChange}
+            onChange={handleNameOnCardChange}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
