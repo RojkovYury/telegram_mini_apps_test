@@ -21,6 +21,14 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
+  const tgTextFieldSx = { 
+    ml:1, 
+    mb: 1, 
+    input: { color: 'var(--tg-theme-text-color)' },
+    label: { color: 'var(--tg-theme-text-color)' },
+    div: { color: 'var(--tg-theme-text-color)' },
+  };
+
   const handleCardNumberChange = (e) => {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value)) {
@@ -78,13 +86,7 @@ function App() {
               ),
             }}
             InputLabelProps={{ shrink: true }} 
-            sx={{ 
-              ml:1, 
-              mb: 1, 
-              input: { color: 'var(--tg-theme-text-color)' },
-              label: { color: 'var(--tg-theme-text-color)' },
-              div: { color: 'var(--tg-theme-text-color)' },
-            }}
+            sx={ tgTextFieldSx } 
           />
 
           <TextField
@@ -100,7 +102,7 @@ function App() {
               ),
             }}
             InputLabelProps={{ shrink: true }} 
-            sx={{ ml:1, mb: 1 }} 
+            sx={ tgTextFieldSx } 
           />
        
 
@@ -118,7 +120,7 @@ function App() {
                 ),
               }}
               InputLabelProps={{ shrink: true }} 
-              sx={{ ml:1, mb: 1, flexBasis: 0, flexGrow: 1 }} 
+              sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
 
             <TextField
@@ -134,7 +136,7 @@ function App() {
                 ),
               }}
               InputLabelProps={{ shrink: true }} 
-              sx={{ ml:1, mb: 1, flexBasis: 0, flexGrow: 1 }} 
+              sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
           </Box>
 
