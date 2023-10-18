@@ -3,6 +3,11 @@ import './App.css';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import LockIcon from '@mui/icons-material/Lock';
+import PersonIcon from '@mui/icons-material/Person';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const tg = window.Telegram.WebApp;
 
@@ -62,48 +67,86 @@ function App() {
       <form onSubmit={handleSubmit}>
         <Box sx={{ display: 'flex', flexDirection: 'column', p:2 }}>
           <TextField 
+            id="cardNumber"
             label="Card Number:"
             value={cardNumber} 
-            // onChange={handleCardNumberChange} 
+            // onChange={handleCardNumberChange}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <CreditCardIcon />
+                </InputAdornment>
+              ),
+            }}
             InputLabelProps={{ shrink: true }} 
             sx={{ ml:1, mb: 1 }} 
           />
 
-          <TextField 
+          <TextField
+            id="nameOnCard"
             label="Name on Card:"
             value={nameOnCard} 
             // onChange={handleCardNumberChange}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <PersonIcon />
+                </InputAdornment>
+              ),
+            }}
             InputLabelProps={{ shrink: true }} 
             sx={{ ml:1, mb: 1 }} 
           />
        
 
-          <Box>
+          <Box sx={{ display: 'flex' }}>
             <TextField
+              id="expiryDate"
               label="ExpiryDate:"
               value={expiryDate}
-              // onChange={handleExpirationDateChange} 
+              // onChange={handleExpirationDateChange}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <CalendarMonthIcon />
+                  </InputAdornment>
+                ),
+              }}
               InputLabelProps={{ shrink: true }} 
-              sx={{ ml:1, mb: 1 }} 
+              sx={{ ml:1, mb: 1, flexBasis: 0, flexGrow: 1 }} 
             />
 
-            <TextField 
+            <TextField
+              id="cvv" 
               label="cvv:"
               value={cvv}
-              // onChange={handleCvvChange} 
+              onChange={handleCvvChange}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                ),
+              }}
               InputLabelProps={{ shrink: true }} 
-              sx={{ ml:1, mb: 1 }} 
+              sx={{ ml:1, mb: 1, flexBasis: 0, flexGrow: 1 }} 
             />
+          </Box>
+
+          <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+            <Button variant='outlined' onClick={onClose} sx={{ ml:1, mb: 1, minWidth: '110px' }}>
+              Close
+            </Button>
+            <Button variant='contained' type="submit" sx={{ ml:1, mb: 1, minWidth: '110px' }}>
+              Submit
+            </Button>
           </Box>
 
         </Box>
 
-
-
-        <button type="submit">Отправить</button>
       </form>
 
-      <Button variant='contained' onClick={onClose}>Close</Button>
+      
     </div>
   );
 }
