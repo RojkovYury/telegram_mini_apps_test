@@ -13,10 +13,7 @@ const tg = window.Telegram.WebApp;
 
 function App() {
 
-  useEffect(() => {
-    tg.ready(); 
-  })
-
+  useEffect(() => { tg.ready(); })
   const onClose = () => { tg.close(); }
 
   const [cardNumber, setCardNumber] = useState('');
@@ -26,7 +23,6 @@ function App() {
 
   const handleCardNumberChange = (e) => {
     const value = e.target.value;
-    // Проверка на допустимые символы (только числа)
     if (/^[0-9\b]+$/.test(value)) {
       setCardNumber(value);
     }
@@ -34,7 +30,6 @@ function App() {
 
   const handleExpirationDateChange = (e) => {
     const value = e.target.value;
-    // Проверка на допустимые символы (только числа)
     if (/^[0-9/]+$/.test(value)) {
       setExpiryDate(value);
     }
@@ -42,7 +37,6 @@ function App() {
 
   const handleCvvChange = (e) => {
     const value = e.target.value;
-    // Проверка на допустимые символы (только числа)
     if (/^[0-9\b]+$/.test(value)) {
       setCvv(value);
     }
@@ -50,27 +44,26 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Проверка на заполнение всех полей
     if (cardNumber && expirationDate && cvv) {
-      // Добавьте здесь логику обработки отправки формы
       console.log('Данные отправлены!');
     } else {
       console.log('Пожалуйста, заполните все поля');
     }
   };
 
-
-
   return (
     <div className="App">
-
       <form onSubmit={handleSubmit}>
+
+        <button style={{ height: '150px', width: '150px', background: 'var(--tg-theme-text-color);', }}>sss</button>
+
         <Box sx={{ display: 'flex', flexDirection: 'column', p:2 }}>
-          <TextField 
+          <TextField
             id="cardNumber"
             label="Card Number:"
-            value={cardNumber} 
-            // onChange={handleCardNumberChange}
+            type='number'
+            value={cardNumber}
+            onChange={handleCardNumberChange}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -117,10 +110,10 @@ function App() {
             />
 
             <TextField
-              id="cvv" 
+              id="cvv"
               label="cvv:"
               value={cvv}
-              onChange={handleCvvChange}
+              // onChange={handleCvvChange}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -133,11 +126,11 @@ function App() {
             />
           </Box>
 
-          <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
-            <Button variant='outlined' onClick={onClose} sx={{ ml:1, mb: 1, minWidth: '110px' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button variant='outlined' onClick={onClose} sx={{ ml:1, mb: 1, minWidth: '120px' }}>
               Close
             </Button>
-            <Button variant='contained' type="submit" sx={{ ml:1, mb: 1, minWidth: '110px' }}>
+            <Button variant='contained' type="submit" sx={{ ml:1, mb: 1, minWidth: '120px' }}>
               Submit
             </Button>
           </Box>
@@ -145,10 +138,13 @@ function App() {
         </Box>
 
       </form>
-
-      
     </div>
   );
 }
 
-export default App;
+export default App
+
+
+/*
+
+*/
