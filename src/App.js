@@ -23,7 +23,7 @@ function App() {
 
   const tgTextFieldSx = { 
     ml:1, 
-    mb: 1, 
+    mb: 2, 
     input: { color: 'var(--tg-theme-text-color)' },
     label: { color: 'var(--tg-theme-text-color)' },
     div: { color: 'var(--tg-theme-text-color)' },
@@ -70,7 +70,7 @@ function App() {
     <div className="App">
       <form onSubmit={handleSubmit}>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', p:2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
           <TextField
             id="cardNumber"
             label="Card Number:"
@@ -85,6 +85,7 @@ function App() {
               ),
             }}
             InputLabelProps={{ shrink: true }} 
+            focused
             sx={ tgTextFieldSx } 
           />
 
@@ -101,6 +102,7 @@ function App() {
               ),
             }}
             InputLabelProps={{ shrink: true }} 
+            focused
             sx={ tgTextFieldSx } 
           />
        
@@ -119,6 +121,7 @@ function App() {
                 ),
               }}
               InputLabelProps={{ shrink: true }} 
+              focused
               sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
 
@@ -134,7 +137,8 @@ function App() {
                   </InputAdornment>
                 ),
               }}
-              InputLabelProps={{ shrink: true }} 
+              InputLabelProps={{ shrink: true }}
+              focused 
               sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
           </Box>
