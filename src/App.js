@@ -74,7 +74,6 @@ function App() {
           <TextField
             id="cardNumber"
             label="Card Number:"
-            type='number'
             value={cardNumber}
             onChange={handleCardNumberChange}
             InputProps={{
