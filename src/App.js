@@ -8,7 +8,6 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import { colors } from '@mui/material';
 
 const tg = window.Telegram.WebApp;
 
@@ -24,28 +23,28 @@ function App() {
 
   const handleCardNumberChange = (e) => {
     const value = e.target.value;
-    if (/^[0-9\b]+$/.test(value)) {
+    if (value === "" || /^[0-9\b]+$/.test(value)) {
       setCardNumber(value);
     }
   };
 
   const handleNameOnCardChange = (e) => {
     const value = e.target.value;
-    if (/^[a-zA-Z]+$/.test(value)) {
+    if (value === "" || /^[a-zA-Z\s]+$/.test(value)) {
       setNameOnCard(value.toUpperCase());
     }
   };
 
   const handleExpirationDateChange = (e) => {
     const value = e.target.value;
-    if (/^[0-9/]+$/.test(value)) {
+    if (value === "" || /^[0-9/]+$/.test(value)) {
       setExpiryDate(value);
     }
   };
 
   const handleCvvChange = (e) => {
     const value = e.target.value;
-    if (/^[0-9\b]+$/.test(value)) {
+    if (value === "" || /^[0-9\b]+$/.test(value)) {
       setCvv(value);
     }
   };
@@ -63,9 +62,6 @@ function App() {
     <div className="App">
       <form onSubmit={handleSubmit}>
 
-        <button style={{ height: '150px', width: '150px', background: 'var(--tg-theme-text-color)', margin: '20px' }}>text</button>
-        <button style={{ height: '150px', width: '150px', background: 'var(--tg-theme-bg-color)', margin: '20px' }}>bg</button>
-
         <Box sx={{ display: 'flex', flexDirection: 'column', p:2 }}>
           <TextField
             id="cardNumber"
@@ -74,6 +70,7 @@ function App() {
             value={cardNumber}
             onChange={handleCardNumberChange}
             InputProps={{
+              endAdornment: null,
               startAdornment: (
                 <InputAdornment position="start">
                   <CreditCardIcon />
@@ -81,7 +78,13 @@ function App() {
               ),
             }}
             InputLabelProps={{ shrink: true }} 
-            sx={{ ml:1, mb: 1, input: { color: 'var(--tg-theme-bg-color)' } }}
+            sx={{ 
+              ml:1, 
+              mb: 1, 
+              input: { color: 'var(--tg-theme-text-color)' },
+              label: { color: 'var(--tg-theme-text-color)' },
+              div: { color: 'var(--tg-theme-text-color)' },
+            }}
           />
 
           <TextField
@@ -106,7 +109,7 @@ function App() {
               id="expiryDate"
               label="ExpiryDate:"
               value={expiryDate}
-              // onChange={handleExpirationDateChange}
+              onChange={handleExpirationDateChange}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -122,7 +125,7 @@ function App() {
               id="cvv"
               label="cvv:"
               value={cvv}
-              // onChange={handleCvvChange}
+              onChange={handleCvvChange}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
