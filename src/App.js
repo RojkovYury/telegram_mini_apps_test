@@ -55,7 +55,8 @@ function App() {
     <div className="App">
       <form onSubmit={handleSubmit}>
 
-        <button style={{ height: '150px', width: '150px', background: 'var(--tg-theme-text-color);', }}>sss</button>
+        <button style={{ height: '150px', width: '150px', background: 'var(--tg-theme-text-color)', margin: '20px' }}>text</button>
+        <button style={{ height: '150px', width: '150px', background: 'var(--tg-theme-bg-color)', margin: '20px' }}>bg</button>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', p:2 }}>
           <TextField
@@ -71,7 +72,7 @@ function App() {
                 </InputAdornment>
               ),
             }}
-            InputLabelProps={{ shrink: true }} 
+            InputLabelProps={{ shrink: true, color: '' }} 
             sx={{ ml:1, mb: 1 }} 
           />
 
