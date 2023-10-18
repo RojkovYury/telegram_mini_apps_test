@@ -81,7 +81,7 @@ function App() {
               ),
             }}
             InputLabelProps={{ shrink: true }} 
-            sx={{ ml:1, mb: 1, input: { color: '--tg-theme-text-color' } }}
+            sx={{ ml:1, mb: 1, input: { color: 'var(--tg-theme-bg-color)' } }}
           />
 
           <TextField
