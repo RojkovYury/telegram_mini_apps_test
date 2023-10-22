@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import {Box, Button, TextField, InputAdornment} from '@mui/material';
+import {Box, Button, TextField, InputAdornment, Typography} from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -17,6 +17,8 @@ function App() {
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
+
+  const WebAppUser = tg.WebAppUser.id
 
   const tgTextFieldSx = { 
     ml:1, 
@@ -66,6 +68,8 @@ function App() {
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
+
+        <Typography>{WebAppUser}</Typography>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
           <TextField
