@@ -13,27 +13,6 @@ function App() {
   useEffect(() => { tg.ready(); })
   const onClose = () => { tg.close(); }
 
-
-
-
-  bot.onCommand('/start', async (msg, args) => {
-    try {
-      const userProfile = await bot.getUserProfile(msg.from.id);
-      const firstName = userProfile.first_name;
-      const lastName = userProfile.last_name;
-      const username = userProfile.username;
-  
-      const message = `Привет, ${firstName} ${lastName} (${username})!`;
-      bot.sendMessage(msg.chat.id, message);
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-
-
-
-
   const [cardNumber, setCardNumber] = useState('');
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
