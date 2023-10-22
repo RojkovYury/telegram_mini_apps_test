@@ -18,7 +18,7 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-  const WebAppUser = tg.WebAppUser.id
+  const WebAppUser = tg.WebAppUser.last_name
 
   const tgTextFieldSx = { 
     ml:1, 
