@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import {Box, Button, TextField, InputAdornment} from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -15,6 +12,27 @@ function App() {
 
   useEffect(() => { tg.ready(); })
   const onClose = () => { tg.close(); }
+
+
+
+
+  bot.onCommand('/start', async (msg, args) => {
+    try {
+      const userProfile = await bot.getUserProfile(msg.from.id);
+      const firstName = userProfile.first_name;
+      const lastName = userProfile.last_name;
+      const username = userProfile.username;
+  
+      const message = `Привет, ${firstName} ${lastName} (${username})!`;
+      bot.sendMessage(msg.chat.id, message);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
+
+
+
 
   const [cardNumber, setCardNumber] = useState('');
   const [nameOnCard, setNameOnCard] = useState('');
