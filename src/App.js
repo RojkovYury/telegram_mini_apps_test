@@ -78,9 +78,9 @@ function App() {
     <div className="App">
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
 
-          <div style={{ width: '100%' }}>
+          <div style={{ width: '100%', paddingBottom: '10px' }}>
             <label style={{ paddingLeft: '10px' }}>label</label>
-            <div style={{ border: '2px solid black' }}>
+            <div style={{ border: '2px solid black', borderRadius: '4px', display: 'flex' }}>
               <div style={{ width: '24px', height: '24px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px' }}><CreditCardIcon/></div>
               <input style={{ width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none' }}/>
             </div>
