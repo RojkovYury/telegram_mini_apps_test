@@ -15,7 +15,7 @@ const onSendData = useCallback(()=>{
   tg.sendData(JSON.stringify(data))
 })
 
-useEffect(() => { tg.WebApp.onEvent('mainButtonClicked', onSendData); })
+useEffect(() => { tg.onEvent('mainButtonClicked', onSendData); })
 
 function App() {
 
