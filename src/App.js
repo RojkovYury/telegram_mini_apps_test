@@ -7,13 +7,12 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const tg = window.Telegram.WebApp;
+const userId = tg ? tg.initDataUnsafe.user.id : 'tg_userId';
+tg.MainButton.isVisible = true;
 
 function App() {
 
-  useEffect(() => { 
-    tg.ready(); 
-    const userLastName = tg.initDataUnsafe.user.last_name ? tg.initDataUnsafe.user.last_name : 'tg_userLastName';
-  })
+  useEffect(() => { tg.ready(); })
   // const onClose = () => { tg.close(); }
 
   const [cardNumber, setCardNumber] = useState('');
@@ -25,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>{userLastName}</div>
+      <div>{userId}</div>
       <input id='CardNumber'></input>
       <input id='NameOnCard'></input>
       <input id='ExpirationDate'></input>
