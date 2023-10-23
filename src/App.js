@@ -76,8 +76,6 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
-
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
           <TextField
             id="cardNumber"
@@ -150,11 +148,7 @@ function App() {
               sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
           </Box>
-
         </Box>
-
-      </form>
-
     </div>
   );
 }
