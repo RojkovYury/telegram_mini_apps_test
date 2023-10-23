@@ -10,12 +10,7 @@ const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = true;
 
-const onSendData = useCallback(()=>{
-  const data = { street }
-  tg.sendData(JSON.stringify(data))
-})
 
-useEffect(() => { tg.onEvent('mainButtonClicked', onSendData); })
 
 function App() {
 
@@ -30,6 +25,14 @@ function App() {
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
+
+const onSendData = useCallback(()=>{
+  const data = { street }
+  tg.sendData(JSON.stringify(data))
+})
+
+useEffect(() => { tg.onEvent('mainButtonClicked', onSendData); })
+
 
   return (
     <div className="App">
