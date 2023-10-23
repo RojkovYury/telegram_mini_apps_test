@@ -18,7 +18,34 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-  const WebAppUser = tg.initData;
+  const username = tg.initData.username;
+
+  return (
+    <div className="App">
+      <div>{username}</div>
+    </div>
+  );
+}
+
+export default App
+
+
+/*
+tg.initDataUnsafe.user.id // уникальный идентификатор пользователя
+tg.initDataUnsafe.user.isBot // бот ли пользователь (true/false)
+tg.initDataUnsafe.user.first_name // имя пользователя
+tg.initDataUnsafe.user.last_name // "фамилия" пользователя
+tg.initDataUnsafe.user.username // username пользователя
+tg.initDataUnsafe.user.language_code // код языка пользователя
+*/
+
+
+
+
+
+
+
+/*
 
   const tgTextFieldSx = { 
     ml:1, 
@@ -65,9 +92,11 @@ function App() {
     }
   };
 
-  return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
+*/
+
+
+/*
+    <form onSubmit={handleSubmit}>
 
         <Typography>{WebAppUser}</Typography>
 
@@ -156,13 +185,4 @@ function App() {
         </Box>
 
       </form>
-    </div>
-  );
-}
-
-export default App
-
-
-/*
-
 */
