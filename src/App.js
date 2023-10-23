@@ -10,7 +10,10 @@ const tg = window.Telegram.WebApp;
 
 function App() {
 
-  useEffect(() => { tg.ready(); })
+  useEffect(() => { 
+    tg.ready(); 
+    const userLastName = tg.initDataUnsafe.user.last_name ? tg.initDataUnsafe.user.last_name : 'tg_userLastName';
+  })
   // const onClose = () => { tg.close(); }
 
   const [cardNumber, setCardNumber] = useState('');
@@ -18,7 +21,7 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-  const userLastName = tg.initDataUnsafe.user.last_name ? tg.initDataUnsafe.user.last_name : 'tg_userLastName';
+  
 
   return (
     <div className="App">
