@@ -29,6 +29,7 @@ function App() {
       <input id='NameOnCard'></input>
       <input id='ExpirationDate'></input>
       <input id='Cvv'></input>
+      <button onClick={() => tg.BackButton.isVisible = true}>btn</button>
     </div>
   );
 }
