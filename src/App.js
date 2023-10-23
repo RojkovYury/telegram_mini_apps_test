@@ -26,7 +26,7 @@ function App() {
   })
 
   const onSendData = useCallback(()=>{
-    const data = { cardNumber }
+    const data = { cardNumber, nameOnCard, expiryDate, cvv }
     tg.sendData(JSON.stringify(data))
   })
 
