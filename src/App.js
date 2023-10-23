@@ -26,8 +26,8 @@ function App() {
   })
 
   const onSendData = useCallback(()=>{
-    const data2 = { cardNumber, nameOnCard, expiryDate, cvv }
-    tg.sendData(JSON.stringify(data2))
+    const data = { cardNumber, nameOnCard, expiryDate, cvv }
+    tg.sendData(JSON.stringify(data))
   }, [cardNumber, nameOnCard, expiryDate, cvv])
 
   useEffect(() => {
@@ -77,6 +77,16 @@ function App() {
   return (
     <div className="App">
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
+
+          <div style={{ width: '100%' }}>
+            <label style={{ paddingLeft: '10px' }}>label</label>
+            <div style={{ border: '2px solid black' }}>
+              <div style={{ width: '24px', height: '24px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px' }}><CreditCardIcon/></div>
+              <input style={{ width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none' }}/>
+            </div>
+            <label style={{ paddingLeft: '10px' }}>help text</label>
+          </div>
+
           <TextField
             id="cardNumber"
             label="Card Number:"
