@@ -27,7 +27,7 @@ function App() {
   const [cvv, setCvv] = useState('');
 
 const onSendData = useCallback(()=>{
-  const data = { street }
+  const data = { cardNumber }
   tg.sendData(JSON.stringify(data))
 })
 
@@ -38,19 +38,10 @@ useEffect(() => { tg.onEvent('mainButtonClicked', onSendData); })
     <div className="App">
       <div>{userId}</div>
 
-      <div id='slide1'>
-        <input id='CardNumber'></input>
-        <input id='NameOnCard'></input>
-        <input id='ExpirationDate'></input>
-        <input id='Cvv'></input>
-      </div>
-
-      <div id='slide2'>
-        <input id=''></input>
-        <input id=''></input>
-        <input id=''></input>
-        <input id=''></input>
-      </div>
+      <input id='CardNumber'></input>
+      <input id='NameOnCard'></input>
+      <input id='ExpirationDate'></input>
+      <input id='Cvv'></input>
 
       <button onClick={() => tg.BackButton.isVisible = true}>btn</button>
     </div>
