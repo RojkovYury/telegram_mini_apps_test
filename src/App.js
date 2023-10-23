@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import {Box, Button, TextField, InputAdornment, Typography} from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
@@ -10,25 +10,43 @@ const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = true;
 
+const onSendData = useCallback(()=>{
+  const data = { street }
+  tg.sendData(JSON.stringify(data))
+})
+
 function App() {
 
   useEffect(() => { tg.ready(); })
+  
+  useEffect(() => { tg.WebApp.onEvent('mainButtonClicked', onSendData); })
+
+
   // const onClose = () => { tg.close(); }
 
-  const [cardNumber, setCardNumber] = useState('');
+  const [cardNumber, setCardNumber] = useState('cardNumber is 1234 5678 1234 5678');
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-  
-
   return (
     <div className="App">
       <div>{userId}</div>
-      <input id='CardNumber'></input>
-      <input id='NameOnCard'></input>
-      <input id='ExpirationDate'></input>
-      <input id='Cvv'></input>
+
+      <div id='slide1'>
+        <input id='CardNumber'></input>
+        <input id='NameOnCard'></input>
+        <input id='ExpirationDate'></input>
+        <input id='Cvv'></input>
+      </div>
+
+      <div id='slide2'>
+        <input id=''></input>
+        <input id=''></input>
+        <input id=''></input>
+        <input id=''></input>
+      </div>
+
       <button onClick={() => tg.BackButton.isVisible = true}>btn</button>
     </div>
   );
