@@ -10,8 +10,6 @@ const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = true;
 
-
-
 function App() {
 
   useEffect(() => { tg.ready(); })
@@ -155,15 +153,6 @@ function App() {
               focused 
               sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
-          </Box>
-
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Button variant='outlined' onClick={onClose} sx={{ ml:1, mb: 1, minWidth: '120px' }}>
-              Close
-            </Button>
-            <Button variant='contained' type="submit" sx={{ ml:1, mb: 1, minWidth: '120px' }}>
-              Submit
-            </Button>
           </Box>
 
         </Box>
