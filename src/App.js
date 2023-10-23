@@ -15,11 +15,13 @@ const onSendData = useCallback(()=>{
   tg.sendData(JSON.stringify(data))
 })
 
+useEffect(() => { tg.WebApp.onEvent('mainButtonClicked', onSendData); })
+
 function App() {
 
   useEffect(() => { tg.ready(); })
   
-  useEffect(() => { tg.WebApp.onEvent('mainButtonClicked', onSendData); })
+  
 
 
   // const onClose = () => { tg.close(); }
