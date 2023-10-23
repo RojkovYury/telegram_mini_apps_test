@@ -55,7 +55,7 @@ function App() {
     }
   };
 
-  const handleExpirationDateChange = (e) => {
+  const handleExpiryDateChange = (e) => {
     const value = e.target.value;
     if (value === "" || /^[0-9/]+$/.test(value)) {
       setExpiryDate(value);
@@ -66,15 +66,6 @@ function App() {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value)) {
       setCvv(value);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (cardNumber && expirationDate && cvv) {
-      console.log('Данные отправлены!');
-    } else {
-      console.log('Пожалуйста, заполните все поля');
     }
   };
 
@@ -124,7 +115,7 @@ function App() {
               id="expiryDate"
               label="ExpiryDate:"
               value={expiryDate}
-              onChange={handleExpirationDateChange}
+              onChange={handleExpiryDateChange}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
