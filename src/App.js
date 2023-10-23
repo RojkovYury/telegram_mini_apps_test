@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>{username}</div>
+      <div>{username ? username : 'tg.username'}</div>
     </div>
   );
 }
