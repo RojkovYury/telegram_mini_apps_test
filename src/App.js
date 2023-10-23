@@ -18,11 +18,11 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-  const userLastName = tg.initDataUnsafe.user.last_name;
-  // <div>{userLastName || 'tg_userLastName'}</div>
+  const userLastName = tg ? tg.initDataUnsafe.user.last_name : 'tg_userLastName';
+
   return (
     <div className="App">
-      
+      <div>{userLastName}</div>
       <input id='CardNumber'></input>
       <input id='NameOnCard'></input>
       <input id='ExpirationDate'></input>
