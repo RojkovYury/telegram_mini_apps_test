@@ -30,7 +30,12 @@ function App() {
     tg.sendData(JSON.stringify(data))
   }, [cardNumber, nameOnCard, expiryDate, cvv])
 
-  useEffect(() => { tg.onEvent('mainButtonClicked', onSendData); })
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData);
+    return () => {
+      tg.offEvent('mainButtonClicked', onSendData)
+    }
+  })
 
 
   const tgTextFieldSx = { 
