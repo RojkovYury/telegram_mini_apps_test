@@ -15,9 +15,6 @@ tg.MainButton.isVisible = true;
 function App() {
 
   useEffect(() => { tg.ready(); })
-  
-  
-
 
   // const onClose = () => { tg.close(); }
 
@@ -25,6 +22,12 @@ function App() {
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
+
+  useEffect(() => { 
+    tg.MainButton.setParams({
+      text: 'Отправить данные'
+    }); 
+  })
 
 const onSendData = useCallback(()=>{
   const data = { cardNumber }
