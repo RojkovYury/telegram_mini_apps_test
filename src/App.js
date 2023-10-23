@@ -11,7 +11,7 @@ const tg = window.Telegram.WebApp;
 function App() {
 
   useEffect(() => { tg.ready(); })
-  const onClose = () => { tg.close(); }
+  // const onClose = () => { tg.close(); }
 
   const [cardNumber, setCardNumber] = useState('');
   const [nameOnCard, setNameOnCard] = useState('');
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>{userLastName ? userLastName : 'tg_userLastName'}</div>
+      <div>{userLastName || 'tg_userLastName'}</div>
       <input id='CardNumber'></input>
       <input id='NameOnCard'></input>
       <input id='ExpirationDate'></input>
