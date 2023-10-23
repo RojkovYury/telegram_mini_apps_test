@@ -35,7 +35,7 @@ function App() {
     return () => {
       tg.offEvent('mainButtonClicked', onSendData)
     }
-  })
+  }, [onSendData])
 
 
   const tgTextFieldSx = { 
