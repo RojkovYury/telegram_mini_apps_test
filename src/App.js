@@ -7,7 +7,7 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const tg = window.Telegram.WebApp;
-const userId = tg.initDataUnsafe.user.id ? tg.initDataUnsafe.user.id : 'tg_userId';
+const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = true;
 
 function App() {
