@@ -23,7 +23,6 @@ function App() {
     tg.MainButton.setParams({
       text: 'Отправить данные'
     }); 
-    tg.setBackgroundColor(secondary_bg_color)
   })
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
