@@ -106,7 +106,7 @@ function App() {
 
           <Box sx={{ display: 'flex' }}>
           {/* ExpiryDate: */}
-            <div style={{ width: '100%', paddingBottom: '16px' }}>
+            <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1' }}>
               <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
                 ExpiryDate:
               </div>
@@ -124,7 +124,7 @@ function App() {
             </div>
 
             {/* cvv: */}
-            <div style={{ width: '100%', paddingBottom: '16px' }}>
+            <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1'  }}>
               <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
                 cvv:
               </div>
