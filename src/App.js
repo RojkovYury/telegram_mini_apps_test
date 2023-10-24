@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import './App.css';
-import {Box, TextField, InputAdornment } from '@mui/material';
+import {Box } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -36,15 +36,6 @@ function App() {
     }
   }, [onSendData])
 
-
-  const tgTextFieldSx = { 
-    ml:1, 
-    mb: 2, 
-    input: { color: 'var(--tg-theme-text-color)' },
-    label: { color: 'var(--tg-theme-text-color)' },
-    div: { color: 'var(--tg-theme-text-color)' },
-  };
-
   const handleCardNumberChange = (e) => {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value)) {
@@ -79,7 +70,9 @@ function App() {
 
           {/* Card Number: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>Card Number:</div>
+            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+              Card Number:
+            </div>
             <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
                 <CreditCardIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
@@ -93,83 +86,60 @@ function App() {
             {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
           </div>
 
-
-
-          
-
-
-
-
-          <TextField
-            id="cardNumber"
-            label="Card Number:"
-            value={cardNumber}
-            onChange={handleCardNumberChange}
-            InputProps={{
-              endAdornment: null,
-              startAdornment: (
-                <InputAdornment position="start">
-                  <CreditCardIcon />
-                </InputAdornment>
-              ),
-            }}
-            InputLabelProps={{ shrink: true }} 
-            focused
-            sx={ tgTextFieldSx } 
-          />
-
-          <TextField
-            id="nameOnCard"
-            label="Name on Card:"
-            value={nameOnCard} 
-            onChange={handleNameOnCardChange}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <PersonIcon />
-                </InputAdornment>
-              ),
-            }}
-            InputLabelProps={{ shrink: true }} 
-            focused
-            sx={ tgTextFieldSx } 
-          />
-
+          {/* Name on Card: */}
+          <div style={{ width: '100%', paddingBottom: '16px' }}>
+            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+              Name on Card:
+            </div>
+            <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
+              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
+                <PersonIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
+              </div>
+              <input 
+                value={nameOnCard}
+                onChange={handleNameOnCardChange}
+                style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+              />
+            </div>
+            {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
+          </div>
 
           <Box sx={{ display: 'flex' }}>
-            <TextField
-              id="expiryDate"
-              label="ExpiryDate:"
-              value={expiryDate}
-              onChange={handleExpiryDateChange}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <CalendarMonthIcon />
-                  </InputAdornment>
-                ),
-              }}
-              InputLabelProps={{ shrink: true }} 
-              focused
-              sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
-            />
+          {/* ExpiryDate: */}
+            <div style={{ width: '100%', paddingBottom: '16px' }}>
+              <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+                ExpiryDate:
+              </div>
+              <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
+                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
+                  <CalendarMonthIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
+                </div>
+                <input 
+                  value={expiryDate}
+                  onChange={handleExpiryDateChange}
+                  style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+                />
+              </div>
+              {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
+            </div>
 
-            <TextField
-              id="cvv"
-              label="cvv:"
-              value={cvv}
-              onChange={handleCvvChange}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LockIcon />
-                  </InputAdornment>
-                ),
-              }}
-              InputLabelProps={{ shrink: true }}
-              focused 
-              sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
-            />
+            {/* cvv: */}
+            <div style={{ width: '100%', paddingBottom: '16px' }}>
+              <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+                cvv:
+              </div>
+              <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
+                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
+                  <LockIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
+                </div>
+                <input 
+                  value={cvv}
+                  onChange={handleCvvChange}
+                  style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+                />
+              </div>
+              {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
+            </div>
           </Box>
         </Box>
     </div>
