@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import './App.css';
-import {Box, TextField, InputAdornment, Paper } from '@mui/material';
+import {Box, TextField, InputAdornment } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -75,19 +75,11 @@ function App() {
 
   return (
     <div className="App">
-        <Paper 
-          sx={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            m:2,
-            height: '100%',
-            backgroundColor: 'var(--tg-theme-secondary-bg-color)' 
-          }}
-        >
+        <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
 
           {/* Card Number: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px' }}>Card Number:</div>
+            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>Card Number:</div>
             <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}><CreditCardIcon/></div>
               <input 
@@ -96,7 +88,7 @@ function App() {
                 style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-            <div style={{ paddingLeft: '10px' }}>help text</div>
+            <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div>
           </div>
 
 
@@ -177,7 +169,7 @@ function App() {
               sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
           </Box>
-        </Paper>
+        </Box>
     </div>
   );
 }
