@@ -90,7 +90,7 @@ function App() {
                 style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-            <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div>
+            {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
           </div>
 
 
