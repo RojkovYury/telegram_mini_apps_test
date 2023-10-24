@@ -75,7 +75,15 @@ function App() {
 
   return (
     <div className="App">
-        <Paper sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5, backgroundColor: 'var(--tg-theme-secondary-bg-color)' }}>
+        <Paper 
+          sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            m:2,
+            height: '100%',
+            backgroundColor: 'var(--tg-theme-secondary-bg-color)' 
+          }}
+        >
 
           {/* Card Number: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
