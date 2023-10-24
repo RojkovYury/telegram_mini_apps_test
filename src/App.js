@@ -23,9 +23,8 @@ function App() {
     tg.MainButton.setParams({
       text: 'Отправить данные'
     }); 
-    tg.PopupParams.title = 'test'
+    setBackgroundColor(tg.ThemeParams.secondary_bg_color)
   })
-
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
     tg.sendData(JSON.stringify(data))
