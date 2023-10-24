@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import './App.css';
-import {Box, Button, TextField, InputAdornment, Typography} from '@mui/material';
+import {Box, TextField, InputAdornment } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -23,7 +23,7 @@ function App() {
     tg.MainButton.setParams({
       text: 'Отправить данные'
     }); 
-    tg.setBackgroundColor(tg.ThemeParams.secondary_bg_color)
+    tg.setBackgroundColor(secondary_bg_color)
   })
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
