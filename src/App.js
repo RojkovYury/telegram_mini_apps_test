@@ -124,7 +124,7 @@ function App() {
             </div>
 
             {/* cvv: */}
-            <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1'  }}>
+            <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1', marginLeft: '10px' }}>
               <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
                 cvv:
               </div>
