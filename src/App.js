@@ -23,6 +23,7 @@ function App() {
     tg.MainButton.setParams({
       text: 'Отправить данные'
     }); 
+    tg.PopupParams.title = 'test'
   })
 
   const onSendData = useCallback(()=>{
