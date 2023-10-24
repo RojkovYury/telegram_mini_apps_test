@@ -81,7 +81,7 @@ function App() {
           {/* Card Number: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
             <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px' }}>Card Number:</div>
-            <div style={{ border: '2px solid var(--tg-theme-hint-color)', borderRadius: '4px', display: 'flex' }}>
+            <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}><CreditCardIcon/></div>
               <input 
                 value={cardNumber}
