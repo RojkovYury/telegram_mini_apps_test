@@ -75,7 +75,7 @@ function App() {
 
   return (
     <div className="App">
-        <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
+        <Paper sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5, backgroundColor: 'var(--tg-theme-secondary-bg-color)' }}>
 
           {/* Card Number: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
@@ -169,7 +169,7 @@ function App() {
               sx={{ ...tgTextFieldSx, flexBasis: 0, flexGrow: 1 }} 
             />
           </Box>
-        </Box>
+        </Paper>
     </div>
   );
 }
