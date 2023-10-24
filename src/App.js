@@ -78,14 +78,33 @@ function App() {
     <div className="App">
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
 
+
+
+
+
+
+
+
+
           <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px' }}>Card Number</div>
+            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px' }}>Card Number:</div>
             <div style={{ border: '2px solid black', borderRadius: '4px', display: 'flex' }}>
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}><CreditCardIcon/></div>
-              <input style={{ backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}/>
+              <input 
+                value={cardNumber}
+                onChange={handleCardNumberChange}
+                style={{ backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+              />
             </div>
             <div style={{ paddingLeft: '10px' }}>help text</div>
           </div>
+
+
+
+
+
+
+
 
           <TextField
             id="cardNumber"
