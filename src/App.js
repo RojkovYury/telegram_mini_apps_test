@@ -77,7 +77,7 @@ function App() {
               Card Number:
             </div>
 
-            <div style={{ border: '2px solid var(--tg-theme-secondary-bg-color, #efefef)', backgroundColor: 'var(--tg-theme-secondary-bg-color)', borderRadius: '50%', display: 'flex' }}>
+            <div style={{ border: '2px solid var(--tg-theme-secondary-bg-color, #efefef)', backgroundColor: 'var(--tg-theme-secondary-bg-color)', borderRadius: '25px', display: 'flex' }}>
               
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
                 <CreditCardIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
