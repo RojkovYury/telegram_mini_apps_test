@@ -75,8 +75,7 @@ function App() {
   
   return (
     <div className="App">
-        <Paper elevation={3} sx={{ borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', m: 1, px: 2, pt: 2, pb: 10 }}>
-
+        <Paper elevation={3} sx={{ borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', m: 3, px: 2, pt: 4, pb: 18 }}>
           {/* Card Number */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
             <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
@@ -94,7 +93,6 @@ function App() {
             </div>
             {/* <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>{cardNumberError}</div> */}
           </div>
-
 
           {/* Name on Card: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
