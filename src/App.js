@@ -8,7 +8,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
-tg.MainButton.isVisible = true;
+tg.MainButton.isVisible = false;
 tg.MainButton.text = 'Отправить данные';
 tg.MainButton.disable();
 
@@ -24,7 +24,7 @@ function App() {
 
 
   useEffect(() => { 
-    if (cardNumber.length === 16 && nameOnCard && expiryDate && cvv) { tg.MainButton.show() }
+    if (cardNumber.length === 16 && nameOnCard && expiryDate.length === 4 && cvv.length === 3) { tg.MainButton.show() }
     else { tg.MainButton.hide() }
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
