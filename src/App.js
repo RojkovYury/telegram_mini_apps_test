@@ -8,14 +8,10 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
-// tg.MainButton.isVisible = true;
+tg.MainButton.isVisible = true;
 tg.MainButton.text = 'Отправить данные';
 tg.MainButton.disable();
-// tg.MainButton.setParams({ 'color': 'themeParams.button_text_color' });
 
-/* tg.MainButton.setParams({
-  isActive: false,
-}); */
 
 function App() {
 
@@ -31,10 +27,10 @@ function App() {
 
   useEffect(() => { 
     if (cardNumber) {
-      tg.MainButton.enable()
+      tg.MainButton.show()
     }
     else {
-      tg.MainButton.disable();
+      tg.MainButton.hide();
     }
   }, [cardNumber])
 
