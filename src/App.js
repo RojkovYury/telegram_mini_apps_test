@@ -33,13 +33,13 @@ function App() {
     if (cardNumber) {
       tg.MainButton.enable()
       tg.MainButton.setParams({
-        "color": "#000000",
+        "color": "themeParams.button_text_color",
       });
     }
     else {
       tg.MainButton.disable();
       tg.MainButton.setParams({
-        "color": "#ffffff",
+        "color": "themeParams.secondary_bg_color",
       });
     }
   }, [cardNumber])
@@ -112,7 +112,7 @@ function App() {
               <input
                 value={cardNumber}
                 onChange={handleCardNumberChange}
-                style={{ color: 'var(--tg-theme-text-color)', borderRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+                style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
             {/* <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>{cardNumberError}</div> */}
