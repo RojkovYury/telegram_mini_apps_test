@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import './App.css';
-import {Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -10,9 +10,7 @@ const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = false;
 tg.MainButton.text = 'Отправить данные';
-
 tg.headerColor = 'secondary_bg_color'
-// tg.setHeaderColor(secondary_bg_color)
 
 function App() {
 
@@ -77,7 +75,7 @@ function App() {
   
   return (
     <div className="App">
-        <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
+        <Paper elevation={3} sx={{ backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', mx:3, my: 3, p: 2 }}>
 
           {/* Card Number */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
@@ -153,7 +151,7 @@ function App() {
               {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
             </div>
           </Box>
-        </Box>
+        </Paper>
     </div>
   );
 }
