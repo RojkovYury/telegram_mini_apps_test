@@ -63,7 +63,7 @@ function App() {
       setCvv(value);
     }
   };
-  // var(--tg-theme-secondary-bg-color, #efefef);
+  // var(--tg-theme-secondary-bg-color)
   return (
     <div className="App">
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
@@ -73,13 +73,13 @@ function App() {
 
           {/* Card Number0: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+            {/* <div style={{ paddingLeft: '18px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
               Card Number:
-            </div>
+            </div> */}
 
-            <div style={{ border: '2px solid var(--tg-theme-button-color)', backgroundColor: 'var(--tg-theme-secondary-bg-color)', borderRadius: '25px', display: 'flex' }}>
+            <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
               
-              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
+              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '18px', marginRight: '10px' }}>
                 <CreditCardIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
               </div>
 
@@ -90,8 +90,7 @@ function App() {
                 style={{ color: 'var(--tg-theme-text-color)', borderRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-
-            {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
+            <div style={{ paddingLeft: '18px', color: 'var(--tg-theme-text-color)' }}>{'Введите номер вашей банковской карты'}</div>
           </div>
 
 
