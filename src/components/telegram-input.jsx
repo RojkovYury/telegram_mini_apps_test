@@ -37,6 +37,7 @@ export default function TelegramInput(props) {
           {props.icon}
         </div>
         <input
+          name={props.name}
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}
