@@ -24,7 +24,7 @@ function App() {
 
 
   useEffect(() => { 
-    if (cardNumber && nameOnCard && expiryDate && cvv) { tg.MainButton.show() }
+    if (cardNumber.length === 16 && nameOnCard && expiryDate && cvv) { tg.MainButton.show() }
     else { tg.MainButton.hide() }
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
