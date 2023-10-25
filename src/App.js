@@ -12,28 +12,21 @@ tg.MainButton.isVisible = true;
 tg.MainButton.text = 'Отправить данные';
 tg.MainButton.disable();
 
-
 function App() {
 
   useEffect(() => { tg.ready(); })
 
   const [cardNumber, setCardNumber] = useState('');
   // const [cardNumberError, setCardNumberError] = useState(' ');
-
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
 
   useEffect(() => { 
-    if (cardNumber) {
-      tg.MainButton.show()
-    }
-    else {
-      tg.MainButton.hide();
-    }
-  }, [cardNumber])
-
+    if (cardNumber && nameOnCard && expiryDate && cvv) { tg.MainButton.show() }
+    else { tg.MainButton.hide() }
+  }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
@@ -49,7 +42,7 @@ function App() {
 
   const handleCardNumberChange = (e) => {
     const value = e.target.value;
-    if (value === "" || /^[0-9\b]+$/.test(value)) {
+    if ((value === "" || /^[0-9\b]+$/.test(value)) && value.length <= 16) {
       setCardNumber(value);
       // setCardNumberError(' ')
     }
@@ -67,14 +60,14 @@ function App() {
 
   const handleExpiryDateChange = (e) => {
     const value = e.target.value;
-    if (value === "" || /^[0-9/]+$/.test(value)) {
+    if (value === "" || /^[0-9/]+$/.test(value) && value.length <= 4) {
       setExpiryDate(value);
     }
   };
 
   const handleCvvChange = (e) => {
     const value = e.target.value;
-    if (value === "" || /^[0-9\b]+$/.test(value)) {
+    if (value === "" || /^[0-9\b]+$/.test(value) && value.length <= 3) {
       setCvv(value);
     }
   };
@@ -83,22 +76,15 @@ function App() {
     <div className="App">
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
 
-
-
-
-          {/* Card Number0: */}
+          {/* Card Number */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
-
             <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-              Card Number:
+              Card Number
             </div> 
-
             <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
-
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
                 <CreditCardIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
               </div>
-
               <input
                 value={cardNumber}
                 onChange={handleCardNumberChange}
@@ -109,44 +95,22 @@ function App() {
           </div>
 
 
-
-
-
-
-          {/* Card Number: */}
-          <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-              Card Number:
-            </div>
-            <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
-              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
-                <CreditCardIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
-              </div>
-              <input 
-                value={cardNumber}
-                onChange={handleCardNumberChange}
-                style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
-              />
-            </div>
-            {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
-          </div>
-
           {/* Name on Card: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+            <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
               Name on Card:
             </div>
-            <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
+            <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
-                <PersonIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
+                <PersonIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
               </div>
               <input 
                 value={nameOnCard}
                 onChange={handleNameOnCardChange}
-                style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+                style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-            {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
+            {/* <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>help text</div> */}
           </div>
 
           <Box sx={{ display: 'flex' }}>
