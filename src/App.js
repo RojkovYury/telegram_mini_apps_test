@@ -17,7 +17,6 @@ function App() {
   useEffect(() => { tg.ready(); })
 
   const [cardNumber, setCardNumber] = useState('');
-  // const [cardNumberError, setCardNumberError] = useState(' ');
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
@@ -45,14 +44,11 @@ function App() {
   }, [onSendData])
 
   const handleCardNumberChange = (e) => {
-    const value = e.target.value;
+    const value = e.target.value.replace(/\s/g, "");
+    console.log(value);
     if ((value === "" || /^[0-9\b]+$/.test(value)) && value.length <= 16) {
-      setCardNumber(value);
-      // setCardNumberError(' ')
+      setCardNumber(value.replace(/(.{4})(?!$)/g, "$1 "));
     }
-    /* if (!cardNumber && !/^[0-9\b]+$/.test(value)) {
-      setCardNumberError('Допустимы только цифры');
-    } */
   };
 
   const handleNameOnCardChange = (e) => {
@@ -70,15 +66,6 @@ function App() {
         : setExpiryDate(value)
     }
   };
-
-
-/*
-    if (value.length < 3) { setExpiryDate(value + '/'); console.log(value.length) }
-    if (value === "" || /^[0-9/]+$/.test(value) && value.length <= 4) {
-      setExpiryDate(value);
-    }
-*/
-
 
   const handleCvvChange = (e) => {
     const value = e.target.value;
@@ -100,6 +87,7 @@ function App() {
                 <CreditCardIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
               </div>
               <input
+                placeholder='**** **** **** ****'
                 value={cardNumber}
                 onChange={handleCardNumberChange}
                 style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
