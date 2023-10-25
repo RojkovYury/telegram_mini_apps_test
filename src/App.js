@@ -46,7 +46,7 @@ function App() {
   const handleCardNumberChange = (e) => {
     const value = e.target.value.replace(/\s/g, "");
     console.log(value);
-    if ((value === "" || /^[0-9\b]+$/.test(value)) && value.length <= 19) {
+    if ((value === "" || /^[0-9\b]+$/.test(value)) && value.length <= 16) {
       setCardNumber(value.replace(/(.{4})(?!$)/g, "$1 "));
     }
   };
