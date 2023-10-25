@@ -11,6 +11,9 @@ const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId
 tg.MainButton.isVisible = false;
 tg.MainButton.text = 'Отправить данные';
 
+tg.headerColor = 'secondary_bg_color'
+// tg.setHeaderColor(secondary_bg_color)
+
 function App() {
 
   useEffect(() => { tg.ready(); })
@@ -23,7 +26,8 @@ function App() {
 
 
   useEffect(() => { 
-    if (cardNumber.length === 16 && nameOnCard && expiryDate.length === 4 && cvv.length === 3) { tg.MainButton.show(); tg.enableClosingConfirmation(); }
+    if (cardNumber.length === 16 && nameOnCard && expiryDate.length === 4 && cvv.length === 3) { tg.MainButton.show() }
+    else if (cardNumber || nameOnCard || expiryDate || cvv) { tg.enableClosingConfirmation() }
     else { tg.MainButton.hide(); tg.disableClosingConfirmation() }
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
