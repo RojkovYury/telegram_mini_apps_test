@@ -11,6 +11,7 @@ const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId
 tg.MainButton.isVisible = true;
 tg.MainButton.text = 'Отправить данные';
 tg.MainButton.disable();
+tg.MainButton.textColor = "var(--tg-theme-secondary-bg-color)"
 
 /* tg.MainButton.setParams({
   isActive: false,
@@ -35,13 +36,23 @@ function App() {
       text: 'Отправить данные'
     });
   })
-  
+  */
+ 
   useEffect(() => { 
     if (cardNumber) {
-      tg.MainButton.isActive = true
+      tg.MainButton.enable()
+      tg.MainButton.setParams({
+        "color": "var(--tg-theme-button-color)",
+      });
+    }
+    else {
+      tg.MainButton.disable();
+      tg.MainButton.setParams({
+        "color": "var(--tg-theme-secondary-bg-color)",
+      });
     }
   }, [cardNumber])
-*/
+
 
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
@@ -86,7 +97,7 @@ function App() {
       setCvv(value);
     }
   };
-  // var(--tg-theme-secondary-bg-color)
+  
   return (
     <div className="App">
         <Box sx={{ display: 'flex', flexDirection: 'column', px:3, pt: 5 }}>
