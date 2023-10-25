@@ -22,7 +22,7 @@ function App() {
   const [cvv, setCvv] = useState('');
 
   useEffect(() => { 
-    if (cardNumber.length === 16 && nameOnCard && expiryDate.length === 4 && cvv.length === 3) { tg.MainButton.show() }
+    if (cardNumber.length === 19 && nameOnCard && expiryDate.length === 5 && cvv.length === 3) { tg.MainButton.show() }
     else { tg.MainButton.hide() }
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
