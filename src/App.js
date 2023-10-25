@@ -35,13 +35,13 @@ function App() {
       text: 'Отправить данные'
     });
   })
-  */
-
+  
   useEffect(() => { 
     if (cardNumber) {
       tg.MainButton.isActive = true
     }
   }, [cardNumber])
+*/
 
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
