@@ -11,13 +11,11 @@ const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId
 tg.MainButton.isVisible = true;
 tg.MainButton.text = 'Отправить данные';
 tg.MainButton.disable();
-tg.MainButton.setParams({"color": "#143F6B"});
+// tg.MainButton.setParams({ 'color': 'themeParams.button_text_color' });
 
 /* tg.MainButton.setParams({
   isActive: false,
 }); */
-
-// tg.MainButton.isActive
 
 function App() {
 
@@ -30,30 +28,22 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-  /*
-  useEffect(() => { 
-    tg.MainButton.setParams({
-      text: 'Отправить данные'
-    });
-  })
-  */
- 
-  /*
+
   useEffect(() => { 
     if (cardNumber) {
       tg.MainButton.enable()
       tg.MainButton.setParams({
-        "color": "var(--tg-theme-button-color)",
+        "color": "#000000",
       });
     }
     else {
       tg.MainButton.disable();
       tg.MainButton.setParams({
-        "color": "var(--tg-theme-secondary-bg-color)",
+        "color": "#ffffff",
       });
     }
   }, [cardNumber])
-*/
+
 
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
@@ -120,7 +110,6 @@ function App() {
               </div>
 
               <input
-                placeholder='1234-5678-1234-5678'
                 value={cardNumber}
                 onChange={handleCardNumberChange}
                 style={{ color: 'var(--tg-theme-text-color)', borderRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
