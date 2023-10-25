@@ -15,6 +15,8 @@ function App() {
   useEffect(() => { tg.ready(); })
 
   const [cardNumber, setCardNumber] = useState('');
+  const [cardNumberError, setCardNumberError] = useState(' ');
+
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
@@ -40,6 +42,10 @@ function App() {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value)) {
       setCardNumber(value);
+      setCardNumberError(' ')
+    }
+    if (!cardNumber && !/^[0-9\b]+$/.test(value)) {
+      setCardNumberError('Допустимы только цифры');
     }
   };
 
@@ -90,7 +96,7 @@ function App() {
                 style={{ color: 'var(--tg-theme-text-color)', borderRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-            {/* <div style={{ paddingLeft: '20px', color: 'var(--tg-theme-text-color)' }}>{'Введите номер вашей банковской карты'}</div>*/}
+            <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>{cardNumberError}</div>
           </div>
 
 
