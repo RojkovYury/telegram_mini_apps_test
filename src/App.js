@@ -10,7 +10,6 @@ const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = false;
 tg.MainButton.text = 'Отправить данные';
-// tg.MainButton.disable();
 
 function App() {
 
@@ -156,7 +155,3 @@ function App() {
 }
 
 export default App
-
-/*
-
-*/
