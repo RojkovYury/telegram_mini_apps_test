@@ -74,8 +74,8 @@ function App() {
   };
   
   return (
-    <div className="App" style={{ height: '100%' }}>
-        <Paper elevation={3} sx={{ backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', mx:3, my: 3, p: 2 }}>
+    <div className="App" style={{ height: '100vh' }}>
+        <Paper elevation={3} sx={{ boxShadow: 'var(--tg-theme-button-color)', borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', m: 2, p: 2 }}>
 
           {/* Card Number */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
