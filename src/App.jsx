@@ -74,6 +74,7 @@ function App() {
     <div className="App">
       <Paper elevation={3} sx={{ borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', mx: 3, my: 8, px: 2, py: 2 }}>
         <TelegramInput
+        id='card-number'
         title='Card Number'
         placeholder='**** **** **** ****'
         value={cardNumber}
@@ -81,6 +82,7 @@ function App() {
         icon={<CreditCardIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
       />
       <TelegramInput
+        id='card-holder'
         title='Name on Card'
         placeholder=''
         value={nameOnCard}
@@ -89,6 +91,7 @@ function App() {
       />
         <Box sx={{ display: 'flex' }}>
           <TelegramInput
+            id='expiration-date'
             title='Expiry Date'
             placeholder='**/**'
             value={expiryDate}
@@ -97,6 +100,7 @@ function App() {
             sx={{flexBasis: '0', flexGrow: '1'}}
           />
           <TelegramInput
+            id='cvv'
             title='CVV'
             placeholder='***'
             value={cvv}
