@@ -67,7 +67,6 @@ function App() {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value) && value.length <= 3) {
       setCvv(value);
-      borderChange();
     }
   };
   
