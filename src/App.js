@@ -77,17 +77,17 @@ function App() {
               Card Number:
             </div>
 
-            <div style={{ border: '2px solid var(--tg-theme-secondary-bg-color, #efefef)', backgroundColor: 'var(--tg-theme-secondary-bg-color)', borderRadius: '25px', display: 'flex' }}>
+            <div style={{ border: '2px solid var(--tg-theme-button-color)', backgroundColor: 'var(--tg-theme-secondary-bg-color)', borderRadius: '25px', display: 'flex' }}>
               
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
-                <CreditCardIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
+                <CreditCardIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
               </div>
 
               <input
                 placeholder='Card number'
                 value={cardNumber}
                 onChange={handleCardNumberChange}
-                style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+                style={{ color: 'var(--tg-theme-text-color)', borderRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
 
