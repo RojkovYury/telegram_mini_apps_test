@@ -37,7 +37,7 @@ function App() {
     if (cardNumber) {
       tg.MainButton.isActive = true
     }
-  })
+  }, [cardNumber])
 
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
