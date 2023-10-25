@@ -67,6 +67,7 @@ function App() {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value) && value.length <= 3) {
       setCvv(value);
+      borderChange();
     }
   };
   
@@ -97,7 +98,7 @@ function App() {
             value={expiryDate}
             onChange={handleExpiryDateChange}
             icon={<CalendarMonthIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
-            sx={{flexBasis: '0', flexGrow: '1'}}
+            sx={{flexBasis: '0', flexGrow: '1', }}
           />
           <TelegramInput
             name='cvv'
@@ -106,7 +107,7 @@ function App() {
             value={cvv}
             onChange={handleCvvChange}
             icon={<LockIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
-            sx={{flexBasis: '0', flexGrow: '1'}}
+            sx={{flexBasis: '0', flexGrow: '1', marginLeft: '12px'}}
           />
         </Box>
       </Paper>

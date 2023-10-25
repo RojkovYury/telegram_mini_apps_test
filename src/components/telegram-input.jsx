@@ -1,4 +1,5 @@
-export default function TelegramInput(props) {
+
+export default function TelegramInput(props) { 
   return(
     <div 
       style={{ 
@@ -20,7 +21,7 @@ export default function TelegramInput(props) {
       <div
         style={{ 
           display: 'flex',
-          border: '2px solid var(--tg-theme-button-color)', 
+          border: '2px solid var(--tg-theme-button-color)',
           borderRadius: '25px', 
         }}
       >
