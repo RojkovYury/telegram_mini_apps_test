@@ -31,7 +31,8 @@ function App() {
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
   const onSendData = useCallback(()=>{
-    const data = { cardNumber, nameOnCard, expiryDate, cvv }
+    const cardNumberNoSpaces = cardNumber.replace(/\s/g, "")
+    const data = { cardNumber: cardNumberNoSpaces, nameOnCard, expiryDate, cvv }
     tg.sendData(JSON.stringify(data))
   }, [cardNumber, nameOnCard, expiryDate, cvv])
 
