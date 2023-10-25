@@ -13,7 +13,6 @@ tg.MainButton.text = 'Отправить данные';
 tg.headerColor = 'secondary_bg_color';
 
 function App() {
-
   useEffect(() => { tg.ready(); })
 
   const [cardNumber, setCardNumber] = useState('');
@@ -38,9 +37,7 @@ function App() {
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
-    return () => {
-      tg.offEvent('mainButtonClicked', onSendData)
-    }
+    return () => {tg.offEvent('mainButtonClicked', onSendData)}
   }, [onSendData])
 
   const handleCardNumberChange = (e) => {
