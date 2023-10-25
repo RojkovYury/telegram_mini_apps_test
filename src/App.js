@@ -22,7 +22,6 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-
   useEffect(() => { 
     if (cardNumber.length === 16 && nameOnCard && expiryDate.length === 4 && cvv.length === 3) { tg.MainButton.show() }
     else { tg.MainButton.hide() }
@@ -64,11 +63,22 @@ function App() {
   };
 
   const handleExpiryDateChange = (e) => {
-    const value = e.target.value;
+    const value = e.target.value.replace('/', '');
+    if (value === "" || /^[0-9\b]+$/.test(value) && value.length <= 4) {
+      (value.length > 2) 
+        ? setExpiryDate(value.slice(0, 2) + "/" + value.slice(2))
+        : setExpiryDate(value)
+    }
+  };
+
+
+/*
+    if (value.length < 3) { setExpiryDate(value + '/'); console.log(value.length) }
     if (value === "" || /^[0-9/]+$/.test(value) && value.length <= 4) {
       setExpiryDate(value);
     }
-  };
+*/
+
 
   const handleCvvChange = (e) => {
     const value = e.target.value;
@@ -107,7 +117,7 @@ function App() {
               <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
                 <PersonIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
               </div>
-              <input 
+              <input
                 value={nameOnCard}
                 onChange={handleNameOnCardChange}
                 style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
@@ -127,6 +137,7 @@ function App() {
                   <CalendarMonthIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
                 </div>
                 <input 
+                  placeholder='**/**'
                   value={expiryDate}
                   onChange={handleExpiryDateChange}
                   style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
