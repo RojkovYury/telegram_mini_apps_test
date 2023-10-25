@@ -5,7 +5,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import TelegramInput from './components/telegram-input';
+import TelegramInput from './components/telegram-input.jsx';
 
 const tg = window.Telegram.WebApp;
 tg.MainButton.isVisible = false;
@@ -45,7 +45,6 @@ function App() {
 
   const handleCardNumberChange = (e) => {
     const value = e.target.value.replace(/\s/g, "");
-    console.log(value);
     if ((value === "" || /^[0-9\b]+$/.test(value)) && value.length <= 16) {
       setCardNumber(value.replace(/(.{4})(?!$)/g, "$1 "));
     }
@@ -76,80 +75,40 @@ function App() {
   
   return (
     <div className="App">
-        <TelegramInput/>
-        <Paper elevation={3} sx={{ borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', mx: 3, my: 8, px: 2, py: 2 }}>
-          {/* Card Number */}
-          <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-              Card Number
-            </div> 
-            <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
-              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
-                <CreditCardIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
-              </div>
-              <input
-                placeholder='**** **** **** ****'
-                value={cardNumber}
-                onChange={handleCardNumberChange}
-                style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
-              />
-            </div>
-          </div>
-
-          {/* Name on Card: */}
-          <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-              Name on Card
-            </div>
-            <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
-              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
-                <PersonIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
-              </div>
-              <input
-                value={nameOnCard}
-                onChange={handleNameOnCardChange}
-                style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
-              />
-            </div>
-          </div>
-
-          <Box sx={{ display: 'flex' }}>
-            {/* ExpiryDate: */}
-            <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1' }}>
-              <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-                Expiry Date
-              </div>
-              <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
-                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
-                  <CalendarMonthIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
-                </div>
-                <input 
-                  placeholder='**/**'
-                  value={expiryDate}
-                  onChange={handleExpiryDateChange}
-                  style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
-                />
-              </div>
-            </div>
-
-            {/* cvv: */}
-            <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1', marginLeft: '10px' }}>
-              <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-                CVV
-              </div>
-              <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
-                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
-                  <LockIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
-                </div>
-                <input 
-                  value={cvv}
-                  onChange={handleCvvChange}
-                  style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
-                />
-              </div>
-            </div>
-          </Box>
-        </Paper>
+      <Paper elevation={3} sx={{ borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', mx: 3, my: 8, px: 2, py: 2 }}>
+        <TelegramInput
+        title='Card Number'
+        placeholder='**** **** **** ****'
+        value={cardNumber}
+        onChange={handleCardNumberChange}
+        icon={<CreditCardIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
+      />
+      <TelegramInput
+        title='Name on Card'
+        placeholder=''
+        value={nameOnCard}
+        onChange={handleNameOnCardChange}
+        icon={<PersonIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
+      />
+        <Box sx={{ display: 'flex' }}>
+          <TelegramInput
+            title='Expiry Date'
+            placeholder='**/**'
+            value={expiryDate}
+            onChange={handleExpiryDateChange}
+            icon={<CalendarMonthIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
+            sx={{flexBasis: '0', flexGrow: '1'}}
+          />
+          <TelegramInput
+            title='CVV'
+            placeholder='***'
+            value={cvv}
+            onChange={handleCvvChange}
+            icon={<LockIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
+            sx={{flexBasis: '0', flexGrow: '1'}}
+          />
+        </Box>
+      </Paper>
     </div>
   );
 }
