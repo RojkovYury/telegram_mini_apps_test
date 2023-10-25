@@ -98,10 +98,10 @@ function App() {
           {/* Name on Card: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
             <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-              Name on Card:
+              Name on Card
             </div>
             <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
-              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
+              <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
                 <PersonIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
               </div>
               <input 
@@ -114,19 +114,19 @@ function App() {
           </div>
 
           <Box sx={{ display: 'flex' }}>
-          {/* ExpiryDate: */}
+            {/* ExpiryDate: */}
             <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1' }}>
-              <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-                ExpiryDate:
+              <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+                Expiry Date
               </div>
-              <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
-                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
-                  <CalendarMonthIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
+              <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
+                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
+                  <CalendarMonthIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
                 </div>
                 <input 
                   value={expiryDate}
                   onChange={handleExpiryDateChange}
-                  style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+                  style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
                 />
               </div>
               {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
@@ -134,17 +134,17 @@ function App() {
 
             {/* cvv: */}
             <div style={{ width: '100%', paddingBottom: '16px', flexBasis: '0', flexGrow: '1', marginLeft: '10px' }}>
-              <div style={{ paddingLeft: '10px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
-                cvv:
+              <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+                CVV
               </div>
-              <div style={{ border: '2px solid var(--tg-theme-text-color)', borderRadius: '4px', display: 'flex' }}>
-                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '10px', marginRight: '10px' }}>
-                  <LockIcon sx={{ color: 'var(--tg-theme-text-color)' }}/>
+              <div style={{ border: '2px solid var(--tg-theme-button-color)', borderRadius: '25px', display: 'flex' }}>
+                <div style={{ width: '24px', height: '24px', marginTop: '10px', marginBottom: '10px', marginLeft: '20px', marginRight: '10px' }}>
+                  <LockIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>
                 </div>
                 <input 
                   value={cvv}
                   onChange={handleCvvChange}
-                  style={{ color: 'var(--tg-theme-text-color)', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
+                  style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
                 />
               </div>
               {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
