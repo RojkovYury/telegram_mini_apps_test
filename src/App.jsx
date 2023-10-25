@@ -5,12 +5,12 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import TelegramInput from './components/telegram-input';
 
 const tg = window.Telegram.WebApp;
-const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = false;
 tg.MainButton.text = 'Отправить данные';
-tg.headerColor = 'secondary_bg_color'
+tg.headerColor = 'secondary_bg_color';
 
 function App() {
 
@@ -76,6 +76,7 @@ function App() {
   
   return (
     <div className="App">
+        <TelegramInput/>
         <Paper elevation={3} sx={{ borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', mx: 3, my: 8, px: 2, py: 2 }}>
           {/* Card Number */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
@@ -93,7 +94,6 @@ function App() {
                 style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-            {/* <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>{cardNumberError}</div> */}
           </div>
 
           {/* Name on Card: */}
@@ -111,7 +111,6 @@ function App() {
                 style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-            {/* <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>help text</div> */}
           </div>
 
           <Box sx={{ display: 'flex' }}>
@@ -131,7 +130,6 @@ function App() {
                   style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
                 />
               </div>
-              {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
             </div>
 
             {/* cvv: */}
@@ -149,7 +147,6 @@ function App() {
                   style={{ color: 'var(--tg-theme-text-color)', borderTopRightRadius: '25px', borderBottomRightRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
                 />
               </div>
-              {/* <div style={{ paddingLeft: '10px', color: 'var(--tg-theme-text-color)' }}>help text</div> */}
             </div>
           </Box>
         </Paper>
