@@ -15,7 +15,7 @@ function App() {
   useEffect(() => { tg.ready(); })
 
   const [cardNumber, setCardNumber] = useState('');
-  const [cardNumberError, setCardNumberError] = useState(' ');
+  // const [cardNumberError, setCardNumberError] = useState(' ');
 
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -42,11 +42,11 @@ function App() {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value)) {
       setCardNumber(value);
-      setCardNumberError(' ')
+      // setCardNumberError(' ')
     }
-    if (!cardNumber && !/^[0-9\b]+$/.test(value)) {
+    /* if (!cardNumber && !/^[0-9\b]+$/.test(value)) {
       setCardNumberError('Допустимы только цифры');
-    }
+    } */
   };
 
   const handleNameOnCardChange = (e) => {
@@ -79,7 +79,8 @@ function App() {
 
           {/* Card Number0: */}
           <div style={{ width: '100%', paddingBottom: '16px' }}>
-            <div style={{ paddingLeft: '20px', marginBottom: '2px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
+
+            <div style={{ paddingLeft: '20px', marginBottom: '4px', fontSize: '16px', color: 'var(--tg-theme-text-color)' }}>
               Card Number:
             </div> 
 
@@ -96,7 +97,7 @@ function App() {
                 style={{ color: 'var(--tg-theme-text-color)', borderRadius: '25px', backgroundColor: 'inherit', width: '100%', paddingTop: '10px', paddingBottom: '10px', paddingRight: '10px', border: 'none', outline: 'none', fontSize: '18px' }}
               />
             </div>
-            <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>{cardNumberError}</div>
+            {/* <div style={{ height: '18px', paddingLeft: '20px', color: '#ff0000' }}>{cardNumberError}</div> */}
           </div>
 
 
