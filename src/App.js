@@ -25,8 +25,12 @@ function App() {
 
   useEffect(() => { 
     if (cardNumber.length === 16 && nameOnCard && expiryDate.length === 4 && cvv.length === 3) { tg.MainButton.show() }
-    else if (cardNumber || nameOnCard || expiryDate || cvv) { tg.enableClosingConfirmation() }
-    else { tg.MainButton.hide(); tg.disableClosingConfirmation() }
+    else { tg.MainButton.hide() }
+  }, [cardNumber, nameOnCard, expiryDate, cvv ])
+
+  useEffect(() => { 
+    if (cardNumber || nameOnCard || expiryDate || cvv) { tg.enableClosingConfirmation() }
+    else { tg.disableClosingConfirmation() }
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
   const onSendData = useCallback(()=>{
