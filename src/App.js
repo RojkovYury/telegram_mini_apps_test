@@ -9,6 +9,10 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 const tg = window.Telegram.WebApp;
 const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId';
 tg.MainButton.isVisible = true;
+tg.MainButton.text = 'Отправить данные';
+tg.MainButton.isActive = false;
+
+// tg.MainButton.isActive
 
 function App() {
 
@@ -21,11 +25,20 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
+  /*
   useEffect(() => { 
     tg.MainButton.setParams({
       text: 'Отправить данные'
-    }); 
+    });
   })
+  */
+
+  useEffect(() => { 
+    if (cardNumber) {
+      tg.MainButton.isActive = true
+    }
+  })
+
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
     tg.sendData(JSON.stringify(data))
