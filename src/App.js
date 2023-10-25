@@ -39,7 +39,7 @@ function App() {
     else {
       tg.MainButton.disable();
       tg.MainButton.setParams({
-        "color": "themeParams.secondary_bg_color",
+        "color": "#ffffff",
       });
     }
   }, [cardNumber])
