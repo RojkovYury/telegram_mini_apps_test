@@ -11,7 +11,7 @@ const userId = tg?.initDataUnsafe?.user ? tg.initDataUnsafe.user.id : 'tg_userId
 tg.MainButton.isVisible = true;
 tg.MainButton.text = 'Отправить данные';
 tg.MainButton.disable();
-tg.MainButton.textColor = "var(--tg-theme-secondary-bg-color)"
+tg.MainButton.setParams({"color": "#143F6B"});
 
 /* tg.MainButton.setParams({
   isActive: false,
@@ -38,6 +38,7 @@ function App() {
   })
   */
  
+  /*
   useEffect(() => { 
     if (cardNumber) {
       tg.MainButton.enable()
@@ -52,7 +53,7 @@ function App() {
       });
     }
   }, [cardNumber])
-
+*/
 
   const onSendData = useCallback(()=>{
     const data = { cardNumber, nameOnCard, expiryDate, cvv }
