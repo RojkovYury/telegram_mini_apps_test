@@ -13,6 +13,7 @@ tg.MainButton.text = 'Отправить данные';
 tg.headerColor = 'secondary_bg_color';
 
 function App() {
+
   useEffect(() => { tg.ready(); })
 
   const [cardNumber, setCardNumber] = useState('');
@@ -20,30 +21,35 @@ function App() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
+  // MAIN BUTTON CHECK
   useEffect(() => { 
     if (cardNumber.length === 19 && lunaCheck(cardNumber.replace(/\s/g, "")) && nameOnCard && expiryDate.length === 5 && cvv.length === 3) { 
       tg.MainButton.show()
-      console.log('good'); 
+      console.log('ACTIVATE tg.MainButton.show()'); 
     }
     else { tg.MainButton.hide() }
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
-  useEffect(() => { 
-    if (cardNumber || nameOnCard || expiryDate || cvv) { tg.enableClosingConfirmation() }
-    else { tg.disableClosingConfirmation() }
-  }, [cardNumber, nameOnCard, expiryDate, cvv ])
-
+  // SEND DATA to bot
+  // callback
   const onSendData = useCallback(()=>{
     const cardNumberNoSpaces = cardNumber.replace(/\s/g, "")
     const data = { cardNumber: cardNumberNoSpaces, nameOnCard, expiryDate, cvv }
     tg.sendData(JSON.stringify(data))
   }, [cardNumber, nameOnCard, expiryDate, cvv])
-
+  // send
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
     return () => {tg.offEvent('mainButtonClicked', onSendData)}
   }, [onSendData])
 
+  // close modal window CHECK
+  useEffect(() => { 
+    if (cardNumber || nameOnCard || expiryDate || cvv) { tg.enableClosingConfirmation() }
+    else { tg.disableClosingConfirmation() }
+  }, [cardNumber, nameOnCard, expiryDate, cvv ])
+ 
+  // CardNumber handler
   const handleCardNumberChange = (e) => {
     const value = e.target.value.replace(/\s/g, "");
     if ((value === "" || /^[0-9\b]+$/.test(value)) && value.length <= 16) {
@@ -63,13 +69,16 @@ function App() {
     else {return false}
   }
 
+  // NameOnCard handler
   const handleNameOnCardChange = (e) => {
     const value = e.target.value;
     if (value === "" || /^[a-zA-Z\s]+$/.test(value)) {
       setNameOnCard(value.toUpperCase());
     }
+    else {console.log('err')}
   };
 
+  // ExpiryDate handler
   const handleExpiryDateChange = (e) => {
     let value = e.target.value.replace('/', '');
     if (value.length >= 2 && Number(value.substring(0, 2)) > 12) {
@@ -88,6 +97,7 @@ function App() {
     }
   };
 
+  // CVV handler
   const handleCvvChange = (e) => {
     const value = e.target.value;
     if (value === "" || /^[0-9\b]+$/.test(value) && value.length <= 3) {
@@ -109,7 +119,7 @@ function App() {
         <TelegramInput
           name='card-holder'
           title='Name on Card'
-          placeholder=''
+          placeholder='NAME SURNAME'
           value={nameOnCard}
           onChange={handleNameOnCardChange}
           icon={<PersonIcon sx={{ color: 'var(--tg-theme-button-color)' }}/>}
