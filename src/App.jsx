@@ -29,18 +29,16 @@ function App() {
     setOpenSnackbar(false);    
   };
 
-  const borderColorChange = (divId) => {
-    const div = document.getElementById(divId);
-    div.classList.add("pulsating-border")
-    setTimeout(function() {
-      div.classList.remove("pulsating-border");
-    }, 1000);
-  }
-
-  const handleOpenSnackbar = (message, divId) => {
+  const handleOpenSnackbar = (message, divId, disableInfAnim) => {
     setMessageSnackbar(message);
     setOpenSnackbar(true);
-    borderColorChange(divId);
+    const div = document.getElementById(divId);
+    div.classList.add("pulsating-border")
+    if (disableInfAnim) {
+      setTimeout(function() {
+        div.classList.remove("pulsating-border");
+      }, 1000);
+    }
   };
 
   // MAIN BUTTON CHECK
@@ -91,6 +89,16 @@ function App() {
     else {return false}
   }
 
+  useEffect(() => {
+    if (cardNumber.length === 19 && !lunaCheck(cardNumber.replace(/\s/g, ""))) {
+      handleOpenSnackbar('Введен неверный номер', 'card-number-div-border', false)
+    }
+    else {
+      const div = document.getElementById('card-number-div-border');
+      div.classList.remove("pulsating-border");
+    }
+  }, [cardNumber])
+
   // NameOnCard handler
   const handleNameOnCardChange = (e) => {
     const value = e.target.value;
@@ -98,7 +106,7 @@ function App() {
       setNameOnCard(value.toUpperCase());
     }
     else {
-      handleOpenSnackbar('Только латинские буквы', 'card-holder-div-border')
+      handleOpenSnackbar('Только латинские буквы', 'card-holder-div-border', true)
     }
   };
 
