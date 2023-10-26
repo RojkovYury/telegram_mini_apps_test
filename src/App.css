@@ -26,5 +26,5 @@ input::placeholder {
 }
 
 .pulsating-border {
-  animation: pulsate 2s infinite;
+  animation: pulsate 1s infinite;
 }

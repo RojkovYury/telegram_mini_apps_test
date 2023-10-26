@@ -34,7 +34,7 @@ function App() {
     div.classList.add("pulsating-border")
     setTimeout(function() {
       div.classList.remove("pulsating-border");
-    }, 2000);
+    }, 1000);
   }
 
   const handleOpenSnackbar = (message, divId) => {
