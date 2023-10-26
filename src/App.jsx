@@ -128,11 +128,11 @@ function App() {
         autoHideDuration={1500}
         onClose={handleClose}
         // message="Ошибка"
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         TransitionComponent={TransitionLeft}
       >
         <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-          Ошибка
+          Только латинские буквы
         </Alert>
       </Snackbar>
 
