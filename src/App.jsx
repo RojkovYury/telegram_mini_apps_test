@@ -21,7 +21,10 @@ function App() {
   const [cvv, setCvv] = useState('');
 
   useEffect(() => { 
-    if (cardNumber.length === 19 && nameOnCard && expiryDate.length === 5 && cvv.length === 3) { tg.MainButton.show() }
+    if (cardNumber.length === 19 && lunaCheck(cardNumber.replace(/\s/g, "")) && nameOnCard && expiryDate.length === 5 && cvv.length === 3) { 
+      tg.MainButton.show()
+      console.log('good'); 
+    }
     else { tg.MainButton.hide() }
   }, [cardNumber, nameOnCard, expiryDate, cvv ])
 
@@ -48,6 +51,18 @@ function App() {
     }
   };
 
+  const lunaCheck = (cardNumber) => {
+    let cardArray = cardNumber.toString().split('').map(Number)
+    for (let i = cardArray.length - 2; i >= 0; i -= 2) {
+      let doubledDigit = cardArray[i] * 2;
+      if (doubledDigit > 9) {doubledDigit -= 9}
+      cardArray[i] = doubledDigit;
+    }
+    let sum = cardArray.reduce((acc, curr) => acc + curr, 0);
+    if (sum % 10 === 0) {return true}
+    else {return false}
+  }
+
   const handleNameOnCardChange = (e) => {
     const value = e.target.value;
     if (value === "" || /^[a-zA-Z\s]+$/.test(value)) {
@@ -56,7 +71,16 @@ function App() {
   };
 
   const handleExpiryDateChange = (e) => {
-    const value = e.target.value.replace('/', '');
+    let value = e.target.value.replace('/', '');
+    if (value.length >= 2 && Number(value.substring(0, 2)) > 12) {
+      value = '12' + value.slice(2) 
+    };
+    if (value.length >= 2 && Number(value.substring(0, 2)) === 0) {
+      value = '01' + value.slice(2) 
+    };
+    if (value.length === 4 && Number(value.slice(-2)) < 23) {
+      value = value.slice(0, value.length - 2) + '23'
+    }
     if (value === "" || /^[0-9\b]+$/.test(value) && value.length <= 4) {
       (value.length > 2) 
         ? setExpiryDate(value.slice(0, 2) + "/" + value.slice(2))
