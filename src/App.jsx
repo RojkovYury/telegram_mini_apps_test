@@ -34,7 +34,7 @@ function App() {
     if (disableInfAnim) {
       setTimeout(function() {
         div.classList.remove("pulsating-border");
-      }, 1200);
+      }, 1000);
     }
   };
 
