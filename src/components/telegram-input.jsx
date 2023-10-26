@@ -1,4 +1,3 @@
-
 export default function TelegramInput(props) { 
   return(
     <div 
@@ -19,6 +18,7 @@ export default function TelegramInput(props) {
         {props.title}
       </div> 
       <div
+        id={props.colorId}
         style={{ 
           display: 'flex',
           border: '2px solid var(--tg-theme-button-color)',
@@ -38,7 +38,7 @@ export default function TelegramInput(props) {
           {props.icon}
         </div>
         <input
-          name={props.name}
+          id={props.id}
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}

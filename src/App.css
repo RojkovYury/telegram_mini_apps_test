@@ -12,3 +12,19 @@ body {
 input::placeholder {
   color: var(--tg-theme-hint-color);
 }
+
+@keyframes pulsate {
+  0% {
+    border: 2px solid var(--tg-theme-button-color);
+  }
+  20% {
+    border: 2px solid #D32F2F;
+  }
+  100% {
+    border: 2px solid var(--tg-theme-button-color);
+  }
+}
+
+.pulsating-border {
+  animation: pulsate 2s infinite;
+}
