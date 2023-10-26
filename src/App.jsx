@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, forwardRef } from 'react';
 import './App.css';
-import { Box, Paper } from '@mui/material';
+import { Box, Paper, Snackbar, Slide } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -20,6 +21,20 @@ function App() {
   const [nameOnCard, setNameOnCard] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
+
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {setOpen(true)};
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {return}
+    setOpen(false);
+  };
+
+  function TransitionLeft(props) {
+    return <Slide {...props} direction="right" />;
+  }
+  const Alert = forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
   // MAIN BUTTON CHECK
   useEffect(() => { 
@@ -75,7 +90,7 @@ function App() {
     if (value === "" || /^[a-zA-Z\s]+$/.test(value)) {
       setNameOnCard(value.toUpperCase());
     }
-    else {console.log('err')}
+    else { setOpen(true) }
   };
 
   // ExpiryDate handler
@@ -107,6 +122,20 @@ function App() {
   
   return (
     <div className="App">
+
+      <Snackbar
+        open={open}
+        autoHideDuration={1500}
+        onClose={handleClose}
+        // message="Ошибка"
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        TransitionComponent={TransitionLeft}
+      >
+        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+          Ошибка
+        </Alert>
+      </Snackbar>
+
       <Paper elevation={3} sx={{ borderRadius: '25px', backgroundColor: 'var(--tg-theme-bg-color)', display: 'flex', flexDirection: 'column', mx: 3, my: 8, px: 2, py: 2 }}>
         <TelegramInput
           name='card-number'
